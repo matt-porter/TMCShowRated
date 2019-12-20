@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name     TMC Show Rated
-// @version  0.1
+// @version  0.2
 // @description  Hide unrated / low rated comments in the investors threads.
 // @author       Matt Porter
 // @namespace    https://github.com/matt-porter/
@@ -27,6 +27,7 @@ $.each( posts, function( key, val )  {
         return 1; // continue
     }
     var permalink = post.find("a.hashPermalink").text();
+    var permalink_href = post.find("a.hashPermalink").attr("href");
     var author = post.attr("data-author");
     var counts = {};
     var likes = $(this).find('.likesSummary li');
@@ -53,8 +54,7 @@ $.each( posts, function( key, val )  {
     });
     if (!include_post) {
         console.log(`Excluding post ${post_id} by author ${author} perma ${permalink}`);
-        post.hide();
-
+        post.html(`<p>Hidden post <a href="${permalink_href}">${permalink}</a> by ${author}</p>`);
     }
 });
 
