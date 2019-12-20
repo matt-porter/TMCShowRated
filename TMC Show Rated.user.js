@@ -3,6 +3,7 @@
 // @version  0.1
 // @description  Hide unrated / low rated comments in the investors threads.
 // @author       Matt Porter
+// @namespace    https://github.com/matt-porter/
 // @include      https://teslamotorsclub.com/tmc/watched/threads*
 // @grant        none
 // @license      MIT
